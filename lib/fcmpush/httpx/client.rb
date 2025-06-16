@@ -56,6 +56,22 @@ module Fcmpush
         raise NetworkError, "A network error occurred: #{e.class} (#{e.message})"
       end
 
+      def subscribe(topic, *instance_ids, query: {}, headers: {})
+        response = do_subscription_request(topic, *instance_ids, :subscribe, query, headers)
+        exception_handler(response)
+        response
+      rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, EOFError => e
+        raise NetworkError, "A network error occurred: #{e.class} (#{e.message})"
+      end
+
+      def unsubscribe(topic, *instance_ids, query: {}, headers: {})
+        response = do_subscription_request(topic, *instance_ids, :unsubscribe, query, headers)
+        exception_handler(response)
+        response
+      rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, EOFError => e
+        raise NetworkError, "A network error occurred: #{e.class} (#{e.message})"
+      end
+
       private
 
       def create_credentials
@@ -99,6 +115,25 @@ module Fcmpush
         headers.merge("Content-Type" => "application/json",
                       "Accept" => "application/json",
                       "Authorization" => "Bearer #{access_token}")
+      end
+
+      def do_subscription_request(topic, *instance_ids, action, query, headers)
+        suffix = action == :subscribe ? ":batchAdd" : ":batchRemove"
+
+        uri = URI.join(TOPIC_DOMAIN, TOPIC_ENDPOINT_PREFIX + suffix)
+        uri.query = URI.encode_www_form(query) unless query.empty?
+
+        headers = v1_authorized_header(headers)
+        headers['access_token_auth'] = 'true'
+        httpx.post(uri.to_s, json: make_subscription_body(topic, instance_ids), headers:)
+      end
+
+      def make_subscription_body(topic, *instance_ids)
+        topic = topic.match(%r{^/topics/}) ? topic : '/topics/' + topic
+        {
+          to: topic,
+          registration_tokens: instance_ids
+        }.to_json
       end
 
       def exception_handler(response)
