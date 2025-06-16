@@ -1,13 +1,16 @@
 
 require "httpx"
 require "googleauth"
+
+require "fcmpush/httpx/exceptions"
+
 module Fcmpush
   module Httpx
     V1_ENDPOINT_PREFIX = "/v1/projects/".freeze
     V1_ENDPOINT_SUFFIX = "/messages:send".freeze
     TOPIC_DOMAIN = "https://iid.googleapis.com".freeze
     TOPIC_ENDPOINT_PREFIX = "/iid/v1".freeze
-    BATCH_ENDPOINT = "/batch".freeze
+
     class Client
       attr_reader :domain, :path, :httpx, :configuration, :access_token, :access_token_expiry
 
@@ -30,8 +33,6 @@ module Fcmpush
         @auth.fetch_access_token
       end
 
-
-
       def configure_client(options)
         op = {}
         op[:timeout] = {
@@ -39,7 +40,6 @@ module Fcmpush
           write_timeout: options[:write_timeout] || configuration.write_timeout,
           read_timeout: options[:read_timeout] || configuration.read_timeout
         }
-
         op
       end
 
@@ -50,9 +50,9 @@ module Fcmpush
         refresh_access_token
         headers = v1_authorized_header(headers)
         response = httpx.post(uri.to_s, json: body.is_a?(String) ? JSON.parse(body) : body, headers:)
-        response.raise_for_status
+        exception_handler(response)
         response
-      rescue HTTPX::Error => e
+      rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, EOFError => e
         raise NetworkError, "A network error occurred: #{e.class} (#{e.message})"
       end
 
@@ -103,6 +103,7 @@ module Fcmpush
 
       def exception_handler(response)
         error = STATUS_TO_EXCEPTION_MAPPING[response.status]
+        binding.irb
         if error
           raise error.new(
             "Received an error response #{response.status} #{error.to_s.split('::').last}: #{response.body.to_s}",
