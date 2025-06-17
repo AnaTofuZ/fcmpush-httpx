@@ -27,9 +27,5 @@ module Fcmpush
     def self.reset
       @configuration = Configuration.new
     end
-
-    def self.configure(&block)
-      yield(configuration(&block))
-    end
   end
 end
