@@ -3,7 +3,6 @@ PATH
   specs:
     fcmpush-httpx (0.1.0)
       fcmpush (~> 1.5)
-      google-apis-identitytoolkit_v3 (~> 0.18.0)
       httpx (~> 1.5)
 
 GEM

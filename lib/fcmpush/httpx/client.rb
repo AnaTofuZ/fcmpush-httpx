@@ -1,6 +1,5 @@
 
 require "httpx"
-require "googleauth"
 
 require 'fcmpush/client'
 require "fcmpush/httpx/exceptions"

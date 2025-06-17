@@ -124,7 +124,7 @@
     version = "1.5.0";
   };
   fcmpush-httpx = {
-    dependencies = ["fcmpush" "google-apis-identitytoolkit_v3" "httpx"];
+    dependencies = ["fcmpush" "httpx"];
     groups = ["default"];
     platforms = [];
     source = {
