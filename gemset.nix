@@ -36,6 +36,18 @@
     targets = [];
     version = "0.2.0";
   };
+  connection_pool = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0nrhsk7b3sjqbyl1cah6ibf1kvi3v93a7wf4637d355hp614mmyg";
+      target = "ruby";
+      type = "gem";
+    };
+    targets = [];
+    version = "2.5.3";
+  };
   date = {
     groups = ["default"];
     platforms = [];
@@ -98,8 +110,21 @@
     targets = [];
     version = "3.4.0";
   };
+  fcmpush = {
+    dependencies = ["google-apis-identitytoolkit_v3" "net-http-persistent"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0z3gmnbqxv0xcwfg4mm860f7cp9a5zcz6kvxys5c6bzg3q7cyakf";
+      target = "ruby";
+      type = "gem";
+    };
+    targets = [];
+    version = "1.5.0";
+  };
   fcmpush-httpx = {
-    dependencies = ["google-apis-identitytoolkit_v3" "httpx"];
+    dependencies = ["fcmpush" "google-apis-identitytoolkit_v3" "httpx"];
     groups = ["default"];
     platforms = [];
     source = {
@@ -345,6 +370,19 @@
     };
     targets = [];
     version = "0.6.0";
+  };
+  net-http-persistent = {
+    dependencies = ["connection_pool"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0pfxhhn1lqnxx8dj3ig3lgnhkxq5jsb0brg7w2wnrpwf8c23mfra";
+      target = "ruby";
+      type = "gem";
+    };
+    targets = [];
+    version = "4.0.6";
   };
   os = {
     groups = ["default"];

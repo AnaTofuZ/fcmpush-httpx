@@ -32,6 +32,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "httpx", "~> 1.5"
+  spec.add_dependency "fcmpush", '~> 1.5'
   spec.add_dependency 'google-apis-identitytoolkit_v3', "~> 0.18.0"
 
   # For more information and examples about making a new gem, check out our
