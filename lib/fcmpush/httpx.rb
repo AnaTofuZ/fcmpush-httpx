@@ -2,8 +2,8 @@
 
 require 'googleauth'
 require 'httpx'
+require 'fcmpush/configuration'
 
-require 'fcmpush/httpx/configuration'
 require 'fcmpush/httpx/client'
 require 'fcmpush/httpx/version'
 
@@ -15,17 +15,9 @@ module Fcmpush
 
     class << self
       def build(project_id, domain: DOMAIN)
-        ::Fcmpush::Httpx::Client.new(domain:, project_id:, configuration:)
+        ::Fcmpush::Httpx::Client.new(domain, project_id, Fcmpush::Configuration.new)
       end
       alias new build
-    end
-
-    def self.configuration
-      @configuration ||= Configuration.new
-    end
-
-    def self.reset
-      @configuration = Configuration.new
     end
   end
 end
