@@ -138,7 +138,6 @@ module Fcmpush
 
       def exception_handler(response)
         error = STATUS_TO_EXCEPTION_MAPPING[response.status]
-        binding.irb
         if error
           raise error.new(
             "Received an error response #{response.status} #{error.to_s.split('::').last}: #{response.body.to_s}",
