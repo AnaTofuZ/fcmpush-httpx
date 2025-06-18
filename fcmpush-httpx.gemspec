@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["anatofuz@gmail.com"]
 
   spec.summary = "'Firebase Cloud Messaging API wrapper for ruby, supports HTTP v1 using httpx gem.'"
-  spec.description = "Firebase Cloud Messaging API wrapper for ruby, supports HTTP v1 using httpx gem. It includes access_token auto-refresh feature and is designed to be simple and easy to use."
+  spec.description = "Firebase Cloud Messaging API wrapper for ruby, supports HTTP v1 using httpx gem."
   spec.homepage = "https://github.com/AnaTofuZ/fcmpush-httpx"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.1.0"
