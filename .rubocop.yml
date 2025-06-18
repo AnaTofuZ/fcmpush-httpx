@@ -6,3 +6,12 @@ Style/StringLiterals:
 
 Style/StringLiteralsInInterpolation:
   EnforcedStyle: double_quotes
+
+Style/Documentation:
+  Exclude:
+    - 'lib/fcmpush/**/*.rb'
+
+Lint/MissingSuper:
+  Exclude:
+    - 'lib/fcmpush/**/*.rb'
+
