@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-require 'googleauth'
-require 'httpx'
-require 'fcmpush/configuration'
+require "googleauth"
+require "httpx"
+require "fcmpush/configuration"
 
-require 'fcmpush/httpx/client'
-require 'fcmpush/httpx/version'
+require "fcmpush/httpx/client"
+require "fcmpush/httpx/version"
 
 module Fcmpush
   module Httpx
     class Error < StandardError; end
 
-    DOMAIN = 'https://fcm.googleapis.com'.freeze
+    DOMAIN = "https://fcm.googleapis.com"
 
     class << self
       def build(project_id, domain: DOMAIN)

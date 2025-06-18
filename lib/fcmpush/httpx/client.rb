@@ -1,7 +1,6 @@
-
 require "httpx"
 
-require 'fcmpush/client'
+require "fcmpush/client"
 require "fcmpush/httpx/exceptions"
 
 module Fcmpush
@@ -18,12 +17,11 @@ module Fcmpush
         @options = {}.merge(options)
         @configuration = configuration.dup
         access_token_response = v1_authorize
-        @access_token = access_token_response['access_token']
-        @access_token_expiry = Time.now.utc + access_token_response['expires_in']
+        @access_token = access_token_response["access_token"]
+        @access_token_expiry = Time.now.utc + access_token_response["expires_in"]
         # @server_key = configuration.server_key
         @httpx = HTTPX.plugin(:persistent, configure_client(options))
       end
-
 
       def push(body, query: {}, headers: {})
         response = do_push_request(body, query, headers)
@@ -75,7 +73,7 @@ module Fcmpush
         uri.query = URI.encode_www_form(query) unless query.empty?
 
         headers = v1_authorized_header(headers)
-        headers['access_token_auth'] = 'true'
+        headers["access_token_auth"] = "true"
         httpx.post(uri.to_s, json: make_subscription_body(topic, instance_ids), headers:)
       end
 
@@ -83,7 +81,7 @@ module Fcmpush
         error = STATUS_TO_EXCEPTION_MAPPING[response.status]
         if error
           raise error.new(
-            "Received an error response #{response.status} #{error.to_s.split('::').last}: #{response.body.to_s}",
+            "Received an error response #{response.status} #{error.to_s.split("::").last}: #{response.body}",
             response
           )
         end
