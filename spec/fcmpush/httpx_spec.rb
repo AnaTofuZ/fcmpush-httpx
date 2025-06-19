@@ -40,12 +40,11 @@ RSpec.describe Fcmpush::Httpx do
         "expires_in" => 3600
       )
       allow_any_instance_of(Fcmpush::Httpx::Client).to receive(:push).and_return(
-        HTTPX::Response.new(HTTPX::Request.new('post', "http://example.com", HTTPX::Options.new()), 200,  '2.0', {})
+        HTTPX::Response.new(HTTPX::Request.new("post", "http://example.com", HTTPX::Options.new), 200, "2.0", {})
       )
     end
 
-    it 'sends a push notification' do
-
+    it "sends a push notification" do
       client = Fcmpush::Httpx.new(project_id)
       response = client.push(message)
 
