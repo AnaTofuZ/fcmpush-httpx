@@ -15,3 +15,6 @@ Lint/MissingSuper:
   Exclude:
     - 'lib/fcmpush/**/*.rb'
 
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/fcmpush/httpx_spec.rb'
