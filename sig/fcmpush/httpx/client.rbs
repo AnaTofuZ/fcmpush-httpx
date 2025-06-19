@@ -1,11 +1,5 @@
 module Fcmpush
   module Httpx
-    V1_ENDPOINT_PREFIX: String
-    V1_ENDPOINT_SUFFIX: String
-    TOPIC_DOMAIN: String
-    TOPIC_ENDPOINT_PREFIX: String
-    TOPIC_ENDPOINT: String
-
     class Client
       @configuration: Configuration
       @options: untyped
@@ -27,12 +21,6 @@ module Fcmpush
       def subscribe: -> HTTPX::Response
 
       def unsubscribe: -> HTTPX::Response
-
-      def v1_authorize: -> Hash[String, String]
-
-      private
-
-      def refresh_access_token: -> untyped
     end
   end
 end
