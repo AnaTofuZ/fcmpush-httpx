@@ -21,7 +21,6 @@ module Fcmpush
         access_token_response = v1_authorize
         @access_token = access_token_response["access_token"]
         @access_token_expiry = Time.now.utc + access_token_response["expires_in"]
-        # @server_key = configuration.server_key
         @httpx = HTTPX.plugin(:persistent, configure_client(options))
       end
 
