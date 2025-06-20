@@ -65,7 +65,7 @@
         inherit
           (rubyNix {
             inherit gemset ruby;
-            name = "fcm-httpx";
+            name = "fcmpush-httpx";
             gemConfig = pkgs.defaultGemConfig // gemConfig;
           })
           env
