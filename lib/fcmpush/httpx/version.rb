@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Fcmpush
-  module Httpx
+  module HTTPX
     VERSION = "0.1.0"
   end
 end

@@ -6,7 +6,7 @@ require "fcmpush/client"
 require "fcmpush/httpx/exceptions"
 
 module Fcmpush
-  module Httpx
+  module HTTPX
     class Client < ::Fcmpush::Client
       DEFAULT_HTTPX_TIME = 60
 
@@ -21,7 +21,7 @@ module Fcmpush
         access_token_response = v1_authorize
         @access_token = access_token_response["access_token"]
         @access_token_expiry = Time.now.utc + access_token_response["expires_in"]
-        @httpx = HTTPX.plugin(:persistent, configure_client(options))
+        @httpx = ::HTTPX.plugin(:persistent, configure_client(options))
       end
 
       def push(body, query: {}, headers: {})

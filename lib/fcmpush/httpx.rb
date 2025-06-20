@@ -8,14 +8,14 @@ require "fcmpush/httpx/client"
 require "fcmpush/httpx/version"
 
 module Fcmpush
-  module Httpx
+  module HTTPX
     class Error < StandardError; end
 
     DOMAIN = "https://fcm.googleapis.com"
 
     class << self
       def build(project_id, domain: DOMAIN)
-        ::Fcmpush::Httpx::Client.new(domain, project_id, Fcmpush::Configuration.new)
+        ::Fcmpush::HTTPX::Client.new(domain, project_id, Fcmpush::Configuration.new)
       end
       alias new build
     end

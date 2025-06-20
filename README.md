@@ -1,6 +1,6 @@
-# Fcmpush::Httpx
+# Fcmpush::HTTPX
 
-Fcmpush::Httpx is a Firebase Cloud Messaging (FCM) client for Ruby, built on top of the [httpx](https://rubygems.org/gems/httpx).
+Fcmpush::HTTPX is a Firebase Cloud Messaging (FCM) client for Ruby, built on top of the [httpx](https://rubygems.org/gems/httpx).
 It is based on the original [fcmpush gem](https://rubygems.org/gems/fcmpush).
 
 By leveraging httpx, this gem enables HTTP/2 communication while maintaining an interface that is almost identical to fcmpush.
@@ -41,4 +41,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Fcmpush::Httpx project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/fcmpush-httpx/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Fcmpush::HTTPX project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/AnaTofuZ/fcmpush-httpx/blob/master/CODE_OF_CONDUCT.md).

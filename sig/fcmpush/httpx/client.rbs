@@ -1,5 +1,5 @@
 module Fcmpush
-  module Httpx
+  module HTTPX
     class Client
       @configuration: Configuration
       @options: untyped
@@ -12,7 +12,7 @@ module Fcmpush
       attr_reader access_token_expiry: Time
       attr_reader configuration: Configuration
       attr_reader domain: String
-      attr_reader httpx: ::Httpx::Client
+      attr_reader httpx: ::HTTPX::Client
 
       attr_reader path: String
 

@@ -4,7 +4,7 @@ require_relative "lib/fcmpush/httpx/version"
 
 Gem::Specification.new do |spec|
   spec.name = "fcmpush-httpx"
-  spec.version = Fcmpush::Httpx::VERSION
+  spec.version = Fcmpush::HTTPX::VERSION
   spec.authors = ["anatofuz"]
   spec.email = ["anatofuz@gmail.com"]
 

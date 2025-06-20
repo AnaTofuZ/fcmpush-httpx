@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Fcmpush
-  module Httpx
+  module HTTPX
     class APIError < StandardError; end
     class DeprecatedApiError < StandardError; end
     class NetworkError < APIError; end
