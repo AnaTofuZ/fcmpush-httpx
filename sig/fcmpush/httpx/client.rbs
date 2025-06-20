@@ -1,0 +1,26 @@
+module Fcmpush
+  module HTTPX
+    class Client
+      @configuration: Configuration
+      @options: untyped
+
+      @path: String
+
+      @project_id: String?
+
+      attr_reader access_token: String
+      attr_reader access_token_expiry: Time
+      attr_reader configuration: Configuration
+      attr_reader domain: String
+      attr_reader httpx: ::HTTPX::Client
+
+      attr_reader path: String
+
+      def push: -> HTTPX::Response
+
+      def subscribe: -> HTTPX::Response
+
+      def unsubscribe: -> HTTPX::Response
+    end
+  end
+end

@@ -1,8 +1,9 @@
-# Fcmpush::Httpx
+# Fcmpush::HTTPX
 
-TODO: Delete this and the text below, and describe your gem
+Fcmpush::HTTPX is a Firebase Cloud Messaging (FCM) client for Ruby, built on top of the [httpx](https://rubygems.org/gems/httpx).
+It is based on the original [fcmpush gem](https://rubygems.org/gems/fcmpush).
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/fcmpush/httpx`. To experiment with that code, run `bin/console` for an interactive prompt.
+By leveraging httpx, this gem enables HTTP/2 communication while maintaining an interface that is almost identical to fcmpush.
 
 ## Installation
 
@@ -32,7 +33,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/fcmpush-httpx. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/fcmpush-httpx/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/AnaTofuZ/fcmpush-httpx. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/AnaTofuZ/fcmpush-httpx/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -40,4 +41,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Fcmpush::Httpx project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/fcmpush-httpx/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Fcmpush::HTTPX project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/AnaTofuZ/fcmpush-httpx/blob/master/CODE_OF_CONDUCT.md).
